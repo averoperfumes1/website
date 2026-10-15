@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Products – Avero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,600;0,800;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#8a6a22"/><stop offset=".35" stop-color="#f0d58a"/><stop offset=".6" stop-color="#c9a24b"/><stop offset="1" stop-color="#7a5c1b"/></linearGradient>
+    <linearGradient id="shine" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".05"/><stop offset=".18" stop-color="#fff" stop-opacity=".5"/><stop offset=".3" stop-color="#fff" stop-opacity=".05"/><stop offset=".85" stop-color="#000" stop-opacity=".35"/></linearGradient>
+    <symbol id="bottle" viewBox="0 0 120 230">
+      <rect x="40" y="4" width="40" height="44" rx="3" fill="url(#gold)"/>
+      <rect x="40" y="40" width="40" height="8" fill="#5a4413" opacity=".5"/>
+      <rect x="51" y="48" width="18" height="16" fill="url(#gold)"/>
+      <rect x="8" y="64" width="104" height="160" rx="12" style="fill:var(--liquid,#a3101f)"/>
+      <rect x="8" y="64" width="104" height="160" rx="12" fill="url(#shine)"/>
+      <rect x="8" y="64" width="104" height="160" rx="12" fill="none" stroke="url(#gold)" stroke-width="2"/>
+      <rect x="30" y="112" width="60" height="70" fill="#050404" stroke="url(#gold)" stroke-width="1.5"/>
+      <text x="60" y="158" text-anchor="middle" font-family="Bodoni Moda,Didot,Georgia,serif" font-weight="800" font-size="40" fill="url(#gold)">A</text>
+      <text x="60" y="173" text-anchor="middle" font-family="Jost,Arial,sans-serif" font-size="7" letter-spacing="3" fill="#f0d58a">AVERO</text>
+    </symbol>
+  </defs>
+</svg>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="Avero home">AVERO</a>
+    <nav class="links" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="products.html" aria-current="page">Products</a>
+      <a href="info.html">Info</a>
+    </nav>
+    <button class="bag" aria-label="Shopping bag">Bag <b id="count">0</b></button>
+  </div>
+</header>
+<main>
+<div class="phead">
+    <div class="wrap">
+      <h1>The collection</h1>
+      <p>Six extraits de parfum, each in a 50 ml bottle with a solid gold-tone cap. Free engraving on every order.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="grid" id="grid"></div>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <span class="logo">AVERO</span>
+    <span>© 2026 Avero Parfums. Wear power.</span>
+    <span><a href="index.html">Home</a> &nbsp; <a href="products.html">Products</a> &nbsp; <a href="info.html">Info</a></span>
+  </div>
+</footer>
+<script>
+var cnt=document.getElementById("count"),n=0;
+try{n=parseInt(localStorage.getItem("avero_bag")||"0",10)||0}catch(e){}
+cnt.textContent=n;
+var P=[
+ {n:"Sanguine",f:"Rose, oud, amber",d:"Our signature. Bright Bulgarian rose over smoked oud.",p:240,l:"#b3121f",c:"#7a0a15"},
+ {n:"Noir Regent",f:"Leather, tobacco, vetiver",d:"Dark and authoritative, with aged leather and dry tobacco leaf.",p:260,l:"#1b1213",c:"#3a2124"},
+ {n:"Aurum",f:"Amber, vanilla, saffron",d:"Molten amber and Madagascan vanilla with a thread of saffron.",p:250,l:"#b8892b",c:"#6f4f12"},
+ {n:"Velvet Crown",f:"Black rose, plum, patchouli",d:"A deep, plush rose with dark plum and earthy patchouli.",p:235,l:"#6e0d1f",c:"#4b0714"},
+ {n:"Ember Oud",f:"Oud, incense, cedar",d:"Slow-burning Assam oud, frankincense and warm cedar.",p:290,l:"#8c1a12",c:"#521008"},
+ {n:"Blanc Absolu",f:"Jasmine, musk, white amber",d:"Clean white jasmine on a soft base of musk. Cool and sharp.",p:230,l:"#e9e0d0",c:"#5d564b"}
+];
+var g=document.getElementById("grid");
+g.innerHTML=P.map(function(x,i){return '<article class="card"><div class="art" style="--c1:'+x.c+'"><svg viewBox="0 0 120 230" style="--liquid:'+x.l+'" aria-hidden="true"><use href="#bottle"/></svg></div><div class="body"><h3>'+x.n+'</h3><span class="family">'+x.f+' · 50 ml</span><p class="desc">'+x.d+'</p><div class="row"><span class="price">$'+x.p+'</span><button class="add" data-i="'+i+'">Add to bag</button></div></div></article>'}).join("");
+
+g.addEventListener("click",function(e){var b=e.target.closest(".add");if(!b)return;n++;cnt.textContent=n;try{localStorage.setItem("avero_bag",n)}catch(e){}b.textContent="Added";b.classList.add("done");setTimeout(function(){b.textContent="Add to bag";b.classList.remove("done")},1400)});
+</script>
+</body>
+</html>

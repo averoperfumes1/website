@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Info – Avero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,600;0,800;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#8a6a22"/><stop offset=".35" stop-color="#f0d58a"/><stop offset=".6" stop-color="#c9a24b"/><stop offset="1" stop-color="#7a5c1b"/></linearGradient>
+    <linearGradient id="shine" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".05"/><stop offset=".18" stop-color="#fff" stop-opacity=".5"/><stop offset=".3" stop-color="#fff" stop-opacity=".05"/><stop offset=".85" stop-color="#000" stop-opacity=".35"/></linearGradient>
+    <symbol id="bottle" viewBox="0 0 120 230">
+      <rect x="40" y="4" width="40" height="44" rx="3" fill="url(#gold)"/>
+      <rect x="40" y="40" width="40" height="8" fill="#5a4413" opacity=".5"/>
+      <rect x="51" y="48" width="18" height="16" fill="url(#gold)"/>
+      <rect x="8" y="64" width="104" height="160" rx="12" style="fill:var(--liquid,#a3101f)"/>
+      <rect x="8" y="64" width="104" height="160" rx="12" fill="url(#shine)"/>
+      <rect x="8" y="64" width="104" height="160" rx="12" fill="none" stroke="url(#gold)" stroke-width="2"/>
+      <rect x="30" y="112" width="60" height="70" fill="#050404" stroke="url(#gold)" stroke-width="1.5"/>
+      <text x="60" y="158" text-anchor="middle" font-family="Bodoni Moda,Didot,Georgia,serif" font-weight="800" font-size="40" fill="url(#gold)">A</text>
+      <text x="60" y="173" text-anchor="middle" font-family="Jost,Arial,sans-serif" font-size="7" letter-spacing="3" fill="#f0d58a">AVERO</text>
+    </symbol>
+  </defs>
+</svg>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="Avero home">AVERO</a>
+    <nav class="links" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="info.html" aria-current="page">Info</a>
+    </nav>
+    <button class="bag" aria-label="Shopping bag">Bag <b id="count">0</b></button>
+  </div>
+</header>
+<main>
+<div class="ihead">
+    <div class="wrap"><h1>Seduction In Every Drop</h1></div>
+  </div>
+  <section class="blk">
+    <div class="wrap">
+      <h2 class="title">Our story</h2>
+      <div class="story">
+        <p>Avero began in 2026 </p>
+        <p>We use more natural oil than most houses and age each blend for ten weeks before bottling. Red stands for the rose and the pulse behind it, black for the depth of oud and resin, gold for the warm amber that finishes every composition.</p>
+      </div>
+      <div class="facts">
+        <div><b>30%</b><span>Perfume oil concentration</span></div>
+        <div><b>10 wks</b><span>Maceration before bottling</span></div>
+        <div><b>12</b><span>Bottles per batch, at most</span></div>
+        <div><b>ُEgypt</b><span>Where every blend is made</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="title" style="margin-bottom:40px">Questions</h2>
+      <details><summary>How long does an Avero fragrance last?</summary><p>Expect eight to twelve hours on skin. Apply to pulse points after moisturizing for the longest wear.</p></details>
+      <details><summary>How much does shipping cost, and how long does it take?</summary><p>Shipping is free on all orders. Delivery takes 3 to 5 working days in Egypt and 5 to 9 days worldwide, in a signed-for gift box.</p></details>
+      <details><summary>Can I return a bottle?</summary><p>Unopened bottles can be returned within 30 days for a full refund. Opened bottles can be exchanged if you are not happy with the scent.</p></details>
+      <details><summary>Are the bottles refillable?</summary><p>Yes. Send back an empty Avero bottle and we will refill it at 25% off the original price.</p></details>
+    </div>
+  </section>
+
+  <section class="blk" style="padding-top:0">
+    <div class="wrap contact">
+      <div><h2 class="title">Visit or write to us</h2><p class="lede">Our fragrance advisors will help you choose in person or by message.</p></div>
+      <dl>
+        <div><dt>Atelier</dt><dd>12 Nile Corniche, Giza, Egypt<br>Open daily, 11:00 to 21:00</dd></div>
+        <a href="mailto:averoperfumes1@gmail.com"><div><dt>Email</dt><dd>averoperfumes1@gmail.com</dd></div></a>
+        <div><dt>Phone</dt><dd>+20 000 000 0000</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <span class="logo">AVERO</span>
+    <span>© 2026 Avero Parfums. Wear power.</span>
+    <span><a href="index.html">Home</a> &nbsp; <a href="products.html">Products</a> &nbsp; <a href="info.html">Info</a></span>
+  </div>
+</footer>
+<script>
+var cnt=document.getElementById("count"),n=0;
+try{n=parseInt(localStorage.getItem("avero_bag")||"0",10)||0}catch(e){}
+cnt.textContent=n;
+</script>
+</body>
+</html>
